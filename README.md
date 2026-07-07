@@ -62,28 +62,28 @@ text
 
 ## 📸 Screenshots
 Screenshots of how the system works are found in the screenshot folder.
+## 📸 Screenshots
 
 ### Login Screen
-![Login Screen](screenshots/login.png)
+![Login Screen](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/login.png?raw=true)
 
 ### Guest Dashboard
-![Guest Dashboard](screenshots/guest-dashboard.png)
+![Guest Dashboard](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/guest-dashboard.png?raw=true)
 
 ### Booking a Room
-![Booking a Room](screenshots/guest-booking.png)
+![Booking a Room](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/guest-booking.png?raw=true)
 
 ### Guest Reservations
-![Guest Reservations](screenshots/guest-reservations.png)
+![Guest Reservations](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/guest-reservations.png?raw=true)
 
 ### Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
+![Admin Dashboard](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/admin-dashboard.png?raw=true)
 
 ### Room Management (Admin)
-![Room Management](screenshots/admin-rooms.png)
+![Room Management](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/admin-rooms.png?raw=true)
 
 ### All Reservations (Admin)
-![All Reservations](screenshots/admin-reservations.png)
-
+![All Reservations](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/admin-reservations.png?raw=true)
 ---
 
 ## 🔑 Demo Credentials
