@@ -1,28 +1,28 @@
 ## 📸 Screenshots
 
 ### Login Screen
-![Login Screen](https://raw.githubusercontent.com/ONORE-AKORTIA/hotel-reservation-system/main/screenshots/login.png)
+![Login Screen](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/login.png?raw=true)
 
 ### Guest Dashboard
-![Guest Dashboard](https://raw.githubusercontent.com/ONORE-AKORTIA/hotel-reservation-system/main/screenshots/guest-dashboard.png)
+![Guest Dashboard](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/guest-dashboard.png?raw=true)
 
 ### Booking a Room
-![Booking a Room](https://raw.githubusercontent.com/ONORE-AKORTIA/hotel-reservation-system/main/screenshots/booking-room.png)
+![Booking a Room](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/booking-room.png?raw=true)
 
 ### Guest Reservations
-![Guest Reservations](https://raw.githubusercontent.com/ONORE-AKORTIA/hotel-reservation-system/main/screenshots/guest-reservations.png)
+![Guest Reservations](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/guest-reservations.png?raw=true)
 
 ### Admin Dashboard
-![Admin Dashboard](https://raw.githubusercontent.com/ONORE-AKORTIA/hotel-reservation-system/main/screenshots/admin-dashboard.png)
+![Admin Dashboard](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/admin-dashboard.png?raw=true)
 
-### Room Management (Admin)
-![Room Management](https://raw.githubusercontent.com/ONORE-AKORTIA/hotel-reservation-system/main/screenshots/room-management.png)
+### Room Management
+![Room Management](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/room-management.png?raw=true)
 
-### All Reservations (Admin)
-![All Reservations](https://raw.githubusercontent.com/ONORE-AKORTIA/hotel-reservation-system/main/screenshots/all-reservations.png)
+### All Reservations
+![All Reservations](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/all-reservations.png?raw=true)
 
 ### Successful Booking
-![Successful Booking](https://raw.githubusercontent.com/ONORE-AKORTIA/hotel-reservation-system/main/screenshots/successful-booking.png)
+![Successful Booking](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/successful-booking.png?raw=true)
 
 ### Reservation Cancellation
-![Reservation Cancellation](https://raw.githubusercontent.com/ONORE-AKORTIA/hotel-reservation-system/main/screenshots/reservation-cancellation.png)
+![Reservation Cancellation](https://github.com/ONORE-AKORTIA/hotel-reservation-system/blob/main/screenshots/reservation-cancellation.png?raw=true)
