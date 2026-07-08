@@ -202,7 +202,11 @@ public class GuestDashboardView {
 
         // Refresh button
         Button refreshButton = new Button("Refresh");
-        refreshButton.setOnAction(e -> loadReservations());
+        refreshButton.setOnAction(e -> {
+       reservationTable.getItems().clear();
+       loadReservations();
+       reservationTable.refresh();
+     });
 
         HBox buttonBox = new HBox(10, refreshButton, cancelButton);
         buttonBox.setAlignment(Pos.CENTER_LEFT);
