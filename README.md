@@ -29,33 +29,39 @@ Technology	Purpose
 
 ---
 
-## 📁 Project Structure
-HotelReservationSystem/
-├── src/
-│ └── com/
-│ └── hotel/
-│ ├── Main.java # Application entry point
-│ ├── model/ # Data layer (Model)
-│ │ ├── User.java # Abstract base class
-│ │ ├── Guest.java # Guest subclass
-│ │ ├── Admin.java # Admin subclass
-│ │ ├── Room.java # Abstract room class
-│ │ ├── SingleRoom.java # Single room type
-│ │ ├── DoubleRoom.java # Double room type
-│ │ ├── SuiteRoom.java # Suite room type
-│ │ ├── Reservation.java # Reservation entity
-│ │ └── Hotel.java # Central data management
-│ ├── controller/ # Business logic (Controller)
-│ │ └── HotelController.java
-│ └── view/ # User interface (View)
-│ ├── LoginView.java
-│ ├── GuestDashboardView.java
-│ └── AdminDashboardView.java
-├── screenshots/ # Application screenshots
-├── README.md
-└── .gitignore
+## 📂 Project Structure
 
-text
+```text
+HotelReservationSystem/
+│
+├── src/
+│   └── com/
+│       └── hotel/
+│           ├── Main.java                      # Application entry point
+│           │
+│           ├── model/                         # Data layer (Model)
+│           │   ├── User.java                  # Abstract base class
+│           │   ├── Guest.java                 # Guest subclass
+│           │   ├── Admin.java                 # Admin subclass
+│           │   ├── Room.java                  # Abstract room class
+│           │   ├── SingleRoom.java            # Single room type
+│           │   ├── DoubleRoom.java            # Double room type
+│           │   ├── SuiteRoom.java             # Suite room type
+│           │   ├── Reservation.java           # Reservation entity
+│           │   └── Hotel.java                 # Central data management
+│           │
+│           ├── controller/                    # Business logic (Controller)
+│           │   └── HotelController.java
+│           │
+│           └── view/                          # User Interface (View)
+│               ├── LoginView.java
+│               ├── GuestDashboardView.java
+│               └── AdminDashboardView.java
+│
+├── screenshots/                               # Application screenshots
+├── README.md                                  # Project documentation
+└── .gitignore                                 # Git ignored files
+```
 
 ---
 
