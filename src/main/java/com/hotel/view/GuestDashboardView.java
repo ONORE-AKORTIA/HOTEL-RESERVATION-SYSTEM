@@ -1,9 +1,8 @@
 package com.hotel.view;
 
-import com.hotel.Main;
+import com.hotel.MainApp;
 import com.hotel.controller.HotelController;
 import com.hotel.model.*;
-import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -65,7 +64,7 @@ public class GuestDashboardView {
         logoutBtn.setStyle("-fx-background-color: #E74C3C; -fx-text-fill: white;");
         logoutBtn.setOnAction(e -> {
             controller.logout();
-            Main.showLoginScreen();
+            MainApp.showLoginScreen();
         });
 
         Region spacer = new Region();
@@ -114,25 +113,14 @@ public class GuestDashboardView {
         roomDetails.setEditable(false);
         roomDetails.setPromptText("Select a room to view details");
 
+        checkInPicker.setOnAction(e -> {
+            calculate(roomDetails);
+        });
+        checkOutPicker.setOnAction(e -> {
+            calculate(roomDetails);
+        });
         roomComboBox.setOnAction(e -> {
-            Room selected = roomComboBox.getSelectionModel().getSelectedItem();
-            if (selected != null) {
-                roomDetails.setText("Room: " + selected.getRoomNumber() + 
-                                  "\nType: " + selected.getRoomType() + 
-                                  "\nPrice: $" + selected.getBasePrice() + "/night" +
-                                  "\nCapacity: " + selected.getCapacity() + " guests" +
-                                  "\nAmenities: " + selected.getAmenities());
-                
-                // Calculate total price
-                if (checkInPicker.getValue() != null && checkOutPicker.getValue() != null) {
-                    int nights = (int) java.time.temporal.ChronoUnit.DAYS.between(
-                        checkInPicker.getValue(), checkOutPicker.getValue());
-                    if (nights > 0) {
-                        double total = selected.calculatePrice(nights);
-                        roomDetails.appendText("\n\nTotal for " + nights + " nights: $" + total);
-                    }
-                }
-            }
+            calculate(roomDetails);
         });
 
         // Book button
@@ -156,6 +144,55 @@ public class GuestDashboardView {
         bookingView.getChildren().addAll(grid, roomDetails);
 
         return bookingView;
+    }
+
+    private void calculate(TextArea roomDetails){
+        Room selected = roomComboBox.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            roomDetails.setText("Room: " + selected.getRoomNumber() +
+                    "\nType: " + selected.getRoomType() +
+                    "\nPrice: $" + selected.getBasePrice() + "/night" +
+                    "\nCapacity: " + selected.getCapacity() + " guests" +
+                    "\nAmenities: " + selected.getAmenities() + "\n");
+
+            // Calculate total price
+            if (checkInPicker.getValue() != null && checkOutPicker.getValue() != null) {
+                int nights = (int) java.time.temporal.ChronoUnit.DAYS.between(
+                        checkInPicker.getValue(), checkOutPicker.getValue());
+                if (nights > 0) {
+                    double total = selected.calculatePrice(nights);
+
+                    roomDetails.appendText("\n" + getPriceBreakdown(selected, nights));
+                    roomDetails.appendText("\n\nTotal for " + nights + " nights: $" + total);
+                }
+            }
+        }
+    }
+
+    private String getPriceBreakdown(Room selected, int numberOfNights) {
+        String priceBreakdown = "";
+
+        if (selected instanceof SingleRoom){
+            SingleRoom room = (SingleRoom) selected;
+            priceBreakdown =
+                    "Base Price: " + selected.getBasePrice() + " x " + numberOfNights + " = $" + (selected.getBasePrice() * numberOfNights) + "\n" +
+                            (room.isHasWorkDesk()? "Work Desk: " + 10  + " x " + numberOfNights + " = $" + (10 * numberOfNights) + "\n" : "");
+        } else if (selected instanceof DoubleRoom){
+            DoubleRoom room = (DoubleRoom) selected;
+            priceBreakdown =
+                    "Base Price: " + selected.getBasePrice() + " x " + numberOfNights + " = $" + (selected.getBasePrice() * numberOfNights) + "\n" +
+                            (room.isHasBalcony()? "Balcony: " + 20  + " x " + numberOfNights + " = $" + (20 * numberOfNights) + "\n" : "") +
+                            (room.getBedCount() > 1 ? "Additional Bed:" + (room.getBedCount() - 1) + " x " + 15 + " x " + numberOfNights + " = $" + (room.getBedCountPrice(numberOfNights)) : "");
+        } else if (selected instanceof SuiteRoom){
+            SuiteRoom room = (SuiteRoom) selected;
+            priceBreakdown =
+                    "Base Price: " + selected.getBasePrice() + " x " + numberOfNights + " = $" + (selected.getBasePrice() * numberOfNights) + "\n" +
+                            (room.isHasJacuzzi()? "Jacuzzi: " + 50 + " x " + numberOfNights + " = $" + (50 * numberOfNights) + "\n" : "") +
+                            (room.isHasKitchenette() ? "Kitchenette: " + 30 + " x " + numberOfNights + " = $" + (30 * numberOfNights)+ "\n"  : "") +
+                            (room.getNumberOfRooms() > 1 ? "Additional Rooms:" + (room.getNumberOfRooms() - 1) + " x " + 25 + " x " + numberOfNights + " =$" +  room.getRoomCountPrice(numberOfNights, room.getNumberOfRooms()) : "");
+        }
+
+        return priceBreakdown;
     }
 
     private VBox createReservationsTab() {
@@ -220,7 +257,6 @@ public class GuestDashboardView {
     private void loadReservations() {
     reservationTable.setItems(controller.getCurrentUserReservations());
 }
-    }
 
     private void bookRoom() {
         try {

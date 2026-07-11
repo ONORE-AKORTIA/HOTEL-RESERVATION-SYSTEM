@@ -1,9 +1,10 @@
 package com.hotel.view;
 
-import com.hotel.Main;
+import com.hotel.MainApp;
 import com.hotel.controller.HotelController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -83,10 +84,10 @@ public class LoginView {
                     // Navigate to appropriate dashboard
                     if (controller.isAdmin()) {
                         AdminDashboardView adminView = new AdminDashboardView(controller);
-                        Main.getPrimaryStage().setScene(new Scene(adminView.getView(), 800, 600));
+                        MainApp.getPrimaryStage().setScene(new Scene(adminView.getView(), 800, 600));
                     } else {
                         GuestDashboardView guestView = new GuestDashboardView(controller);
-                        Main.getPrimaryStage().setScene(new Scene(guestView.getView(), 800, 600));
+                        MainApp.getPrimaryStage().setScene(new Scene(guestView.getView(), 800, 600));
                     }
                 } else {
                     statusLabel.setStyle("-fx-text-fill: red;");

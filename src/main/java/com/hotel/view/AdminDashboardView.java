@@ -1,6 +1,6 @@
 package com.hotel.view;
 
-import com.hotel.Main;
+import com.hotel.MainApp;
 import com.hotel.controller.HotelController;
 import com.hotel.model.*;
 import javafx.collections.FXCollections;
@@ -65,7 +65,7 @@ public class AdminDashboardView {
         logoutBtn.setStyle("-fx-background-color: #E74C3C; -fx-text-fill: white;");
         logoutBtn.setOnAction(e -> {
             controller.logout();
-            Main.showLoginScreen();
+            MainApp.showLoginScreen();
         });
 
         Region spacer = new Region();

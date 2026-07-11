@@ -16,12 +16,17 @@ public class SingleRoom extends Room {
     public boolean isHasTV() { return hasTV; }
     public void setHasTV(boolean hasTV) { this.hasTV = hasTV; }
 
+    public double getWorkDeskPrice(int numberOfNights){
+        if (this.isHasWorkDesk()) {
+            return 10 * numberOfNights; // Additional charge for work desk
+        }
+        return 0;
+    }
+
     @Override
     public double calculatePrice(int numberOfNights) {
         double price = getBasePrice() * numberOfNights;
-        if (hasWorkDesk) {
-            price += 10 * numberOfNights; // Additional charge for work desk
-        }
+        price += getWorkDeskPrice(numberOfNights);
         return price;
     }
 

@@ -22,16 +22,30 @@ public class SuiteRoom extends Room {
     public int getNumberOfRooms() { return numberOfRooms; }
     public void setNumberOfRooms(int numberOfRooms) { this.numberOfRooms = numberOfRooms; }
 
+    public double getJacuzziPrice(int numberOfNights){
+        if (this.isHasJacuzzi()) {
+            return 50 * numberOfNights;
+        }
+        return 0;
+    }
+
+    public double getKitchenettePrice(int numberOfNights){
+        if (this.isHasKitchenette()){
+            return 30 * numberOfNights;
+        }
+        return 0;
+    }
+
+    public double getRoomCountPrice(int numberOfNights, int numberOfRooms){
+        return (numberOfRooms - 1) * 25 * numberOfNights;
+    }
+
     @Override
     public double calculatePrice(int numberOfNights) {
         double price = getBasePrice() * numberOfNights;
-        if (hasJacuzzi) {
-            price += 50 * numberOfNights;
-        }
-        if (hasKitchenette) {
-            price += 30 * numberOfNights;
-        }
-        price += (numberOfRooms - 1) * 25 * numberOfNights; // Extra rooms charge
+        price += getJacuzziPrice(numberOfNights);
+        price += getKitchenettePrice(numberOfNights);
+        price +=  getRoomCountPrice(numberOfNights, this.getNumberOfRooms()); // Extra rooms charge
         return price;
     }
 

@@ -16,15 +16,24 @@ public class DoubleRoom extends Room {
     public int getBedCount() { return bedCount; }
     public void setBedCount(int bedCount) { this.bedCount = bedCount; }
 
+    public double getBalconyPrice(int numberOfNights){
+        if (!this.isHasBalcony()) return 0;
+        return 20 * numberOfNights;
+    }
+
+    public double getBedCountPrice(int numberOfNights){
+        if (this.getBedCount() > 1) {
+            return 15 * (this.getBedCount() - 1) * numberOfNights; // Additional charge for extra beds
+        } else {
+            return 0;
+        }
+    }
+
     @Override
     public double calculatePrice(int numberOfNights) {
         double price = getBasePrice() * numberOfNights;
-        if (hasBalcony) {
-            price += 20 * numberOfNights; // Additional charge for balcony
-        }
-        if (bedCount > 1) {
-            price += 15 * numberOfNights; // Additional charge for extra beds
-        }
+        price += getBalconyPrice(numberOfNights);
+        price += getBedCountPrice(numberOfNights);
         return price;
     }
 

@@ -6,9 +6,13 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class MainApp extends Application {
     private static HotelController controller;
     private static Stage primaryStage;
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
+    }
 
     @Override
     public void start(Stage stage) {
